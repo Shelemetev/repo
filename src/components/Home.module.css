@@ -1,0 +1,152 @@
+.home {
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(180deg, #3701b7,#150240);/* Chrome 10-25, Safari 5.1-6 */                          background: linear-gradient(180deg, #3701b7,#150240);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    perspective: 1000px;   
+    z-index: 1; 
+    overflow: hidden;
+    position: relative;                                     
+}                         
+
+.test1 {
+    background-color: white;
+    z-index: 4;
+}
+
+.home__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.home__grid {
+    width: 562,5px;
+    height: 810px;
+    position: absolute;
+    left:  50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    display: grid;
+    gap: 30px 40px;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: repeat(5, 180px);
+}
+
+.home__apple-news {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
+}
+
+.home__tesla-news {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
+}
+
+.home__business-news {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
+}
+
+.home__techcrunch-news {
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
+}
+
+.home__wallstreet-news {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
+   
+}
+
+.home__img {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.home__grid-block::before{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.home__grid-block {
+    position: relative;
+    height: 100%;
+}
+
+.home__grid-text {
+    position: absolute;
+    z-index: 6;
+    width: 100%;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 28px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; 
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.header__img {
+    width: 140px;
+    height: 140px;
+    color: white;
+}
