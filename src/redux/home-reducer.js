@@ -4,7 +4,8 @@ import { News } from './../api/api';
 const initialState = {
     dataNews: [
 
-    ]
+    ],
+    date: ''
 }
 
 export const addAppleNews = createAsyncThunk(
@@ -15,10 +16,18 @@ export const addAppleNews = createAsyncThunk(
     }
 )
 
+export const setDate = createAction(
+    "set-date"
+)
+
 const homeReducer = createReducer(initialState, (builder) => {
-    builder.addMatcher(addAppleNews, (state, action) => {
-        console.log(action);
+    builder.addCase(setDate, (state, action) => { 
+        state.date = action.payload
     })
+    builder.addMatcher(addAppleNews, (state, action) => {
+        console.log(action);         
+    })
+    
 })
 
 export default homeReducer

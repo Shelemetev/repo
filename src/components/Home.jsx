@@ -1,20 +1,23 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './Home.module.css'
-import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import logo from "../img/logo.svg"
 import { NavLink } from "react-router-dom";
 
-const Home = React.memo(({addAppleNews}) => {
+const Home = React.memo(({addAppleNews,date,setDate}) => {
 
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0') - 1;
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    const yyyy = today.getFullYear();
-    const day =  yyyy + '-' + mm + '-' + dd;
-    
-    
+    useEffect(() => {
+        if(date === ''){
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0') - 1;
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const day =  yyyy + '-' + mm + '-' + dd;
+            setDate(day)
+        }
+    },[date])
+
     let [clietX, setClietX] = useState(window.innerWidth / 2)
     let [clietY, setClietY] = useState(window.innerHeight / 2)
 
@@ -31,17 +34,18 @@ const Home = React.memo(({addAppleNews}) => {
         let radius = Math.sqrt(Math.pow(tiltX, 2) + Math.pow(tiltY, 2))
         let degree = radius * 16
 
-        gsap.to(".home__wrapper", 1, { transform: `rotate3d(${tiltX}, ${tiltY}, 0 ,${degree}deg)` });
+        gsap.to(".home__inner", 1, { transform: `rotate3d(${tiltX}, ${tiltY}, 0 ,${degree}deg)` });
     }, [clietX, clietY])
 
     return (
         <div onMouseMove={(e) => { setClietX(e.clientX); setClietY(e.clientY) }} className={`${s.home} ${"home"}`}>
             <header className={s.header}>
                     <img src={logo} className={s.header__img} />
-            </header>
-            <div className={` ${"home__wrapper"} ${s.home__inner}`}>
+                    <p className={`${s['home__inner-text']}`}>{date}</p>
+            </header> 
+            <div className={` ${"home__inner"} ${s.home__inner}`}>
                 <div className={` ${s.home__grid} `}>
-                    <NavLink onClick={() => addAppleNews(day)} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
+                    <NavLink onClick={() => addAppleNews(date)} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__apple-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {
