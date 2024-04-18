@@ -1,14 +1,23 @@
-import { createAction, createReducer } from '@reduxjs/toolkit'
+import { createAction, createAsyncThunk, createReducer } from '@reduxjs/toolkit'
+import { News } from './../api/api';
 
 const initialState = {
-    value:0
+    dataNews: [
+
+    ]
 }
 
-const increment = createAction("ADD")
+export const addAppleNews = createAsyncThunk(
+    'add-apple-news',
+    async (date) => {
+        const response = await News.getApple(date)
+        return response
+    }
+)
 
 const homeReducer = createReducer(initialState, (builder) => {
-    builder.addCase(increment, (state, action) => {
-        state.value = action
+    builder.addMatcher(addAppleNews, (state, action) => {
+        console.log(action);
     })
 })
 

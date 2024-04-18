@@ -6,14 +6,17 @@ import { useGSAP } from "@gsap/react";
 import logo from "../img/logo.svg"
 import { NavLink } from "react-router-dom";
 
-const Home = React.memo(({ }) => {
+const Home = React.memo(({addAppleNews}) => {
 
-
-
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0') - 1;
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+    const day =  yyyy + '-' + mm + '-' + dd;
+    
+    
     let [clietX, setClietX] = useState(window.innerWidth / 2)
     let [clietY, setClietY] = useState(window.innerHeight / 2)
-
-
 
     useGSAP(() => {
         let cx = window.innerWidth / 2
@@ -38,7 +41,7 @@ const Home = React.memo(({ }) => {
             </header>
             <div className={` ${"home__wrapper"} ${s.home__inner}`}>
                 <div className={` ${s.home__grid} `}>
-                    <NavLink to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
+                    <NavLink onClick={() => addAppleNews(day)} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__apple-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {
