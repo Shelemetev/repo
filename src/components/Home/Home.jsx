@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import s from './Home.module.css'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import logo from "../img/logo.svg"
+import logo from "../../img/logo.svg"
 import { NavLink } from "react-router-dom";
 
 const Home = React.memo(({addAppleNews,date,setDate}) => {

@@ -1,0 +1,28 @@
+.news {
+    background: -webkit-linear-gradient(180deg, #3701b7,#150240);/* Chrome 10-25, Safari 5.1-6 */                          background: linear-gradient(180deg, #3701b7,#150240);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.header__img {
+    width: 140px;
+    height: 140px;
+}
+
+.home__inner-text {
+    z-index: 6;
+    color: #ffffffec;
+    font-size: 60px;
+    font-family: "Oswald", sans-serif;
+}
