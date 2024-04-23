@@ -31,4 +31,30 @@
     height: 100%;
     width: 100%;
     padding: 160px 0 0 0;
+    position: relative;
+}
+
+.home__inner-btn--left {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 57%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 200px;
+}
+
+.home__inner-btn--right {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 57%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 200px;
+}
+
+.home__inner-btn--img {
+    width: 100%;
+    height: 100%;
 }

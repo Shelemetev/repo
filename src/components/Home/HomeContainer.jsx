@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import Home from "./Home";
-import { addAppleNews,setDate } from '../../redux/home-reducer';
-import { getDateSelector } from "../../redux/redux-selectors/home-selector";
+import { addAppleNews,setDate } from '../../redux/main-reducer';
+import { getDateSelector, getPage } from "../../redux/redux-selectors/main-selector";
 
 const mapStateToProps = (state) => {
     return {
-        date: getDateSelector(state)
+        date: getDateSelector(state),
+        page: getPage(state)
     }
 }
 

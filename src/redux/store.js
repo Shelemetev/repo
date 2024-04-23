@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import homeReducer from './home-reducer';
+import homeReducer from './main-reducer';
 
 const reducersData = combineReducers({
     homeData: homeReducer,

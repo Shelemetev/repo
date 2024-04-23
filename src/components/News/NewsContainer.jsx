@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import News from './News';
-import { getDateSelector } from './../../redux/redux-selectors/home-selector';
+import { getDateSelector } from '../../redux/redux-selectors/main-selector';
 
 const mapStateToProps = (state) => {
     return {

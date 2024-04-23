@@ -1,5 +1,5 @@
 import { createAction, createAsyncThunk, createReducer } from '@reduxjs/toolkit'
-import { News } from './../api/api';
+import { News } from '../api/api';
 
 const initialState = {
     dataNews: [
