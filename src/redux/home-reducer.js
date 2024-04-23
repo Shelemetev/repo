@@ -5,7 +5,9 @@ const initialState = {
     dataNews: [
 
     ],
-    date: ''
+    date: '',
+    page: 1,
+    totalPage: 0,
 }
 
 export const addAppleNews = createAsyncThunk(
@@ -24,8 +26,13 @@ const homeReducer = createReducer(initialState, (builder) => {
     builder.addCase(setDate, (state, action) => { 
         state.date = action.payload
     })
-    builder.addMatcher(addAppleNews, (state, action) => {
-        console.log(action);         
+    builder.addCase(addAppleNews.fulfilled, (state, action) => {
+        console.log(action.payload); 
+        
+        state.dataNews = [...action.payload.articles]
+     
+        state.totalPage = action.payload.totalResults
+         
     })
     
 })
