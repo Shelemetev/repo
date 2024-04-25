@@ -9,5 +9,53 @@
     transform: translate(-50%);
     background-color: #000000ec;
     margin-top: 20px;
+    padding: 10px 10px;
+    overflow-y: scroll;
 }
 
+.block__title {
+    color: #F0ECF9;
+    font-family: "Oswald", sans-serif;
+    font-size: 25px;
+}
+
+.block__author {
+    color: #F0ECF9;
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+    margin-top: 5px;
+    position: relative;
+    padding-bottom: 7px;
+}
+
+.block__author::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #F0ECF9;
+    bottom: 0;
+    position: absolute;
+}
+
+.block__info-img{
+    width: 50%;
+    margin-top: 10px;
+}
+
+.block__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: self-start;
+    gap: 40px;
+}
+
+.block__info-text {
+    color: #F0ECF9;
+    font-size: 18px;
+    padding-right: 40px;
+    margin-top: 15px;
+}
+
+.block__info-right {
+    padding: 40px 0;
+}

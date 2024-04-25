@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import logo from "../../img/logo.svg"
 import { NavLink } from "react-router-dom";
 
-const Home = React.memo(({addAppleNews,date,setDate}) => {
+const Home = React.memo(({addAppleNews,date,setDate,page}) => {
 
     useEffect(() => {
         if(date === ''){
@@ -45,7 +45,7 @@ const Home = React.memo(({addAppleNews,date,setDate}) => {
             </header> 
             <div className={` ${"home__inner"} ${s.home__inner}`}>
                 <div className={` ${s.home__grid} `}>
-                    <NavLink onClick={() => addAppleNews(date)} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
+                    <NavLink onClick={() => addAppleNews(date,page)} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__apple-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {

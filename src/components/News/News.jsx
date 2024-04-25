@@ -7,7 +7,8 @@ import leftArrow from '../../img/left-arrow.svg'
 import rightArrow from '../../img/right-arrow.svg'
 
 
-const News = React.memo(({date}) => {
+const News = React.memo(({date,nextPage,prevPage,dataNews}) => {
+
     return (
         <div className={s.news}>
             <header className={s.header}>
@@ -17,12 +18,12 @@ const News = React.memo(({date}) => {
                     <p className={s["home__inner-text"]}>{date}</p>
             </header> 
             <div className={s.header__inner}>
-                <NewsBlock/>
-                <button  className={s["home__inner-btn--left"]}>
-                    <img src={leftArrow} className={s["home__inner-btn--img"]}/>
+                <NewsBlock dataNews={dataNews}/>
+                <button onClick={() => prevPage()} className={s["home__inner-btn--left"]}>
+                    <img draggable="false" src={leftArrow} className={s["home__inner-btn--img"]}/>
                 </button>
-                <button className={s["home__inner-btn--right"]}>
-                    <img src={rightArrow} className={s["home__inner-btn--img"]}/>
+                <button onClick={() => nextPage()} className={s["home__inner-btn--right"]}>
+                    <img draggable="false" src={rightArrow} className={s["home__inner-btn--img"]}/>
                 </button>
             </div>
         </div>
