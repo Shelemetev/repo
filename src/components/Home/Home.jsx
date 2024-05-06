@@ -5,7 +5,9 @@ import { useGSAP } from "@gsap/react";
 import logo from "../../img/logo.svg"
 import { NavLink } from "react-router-dom";
 
-const Home = React.memo(({addAppleNews,date,setDate,page}) => {
+// startLoader();addAppleNews(date,page)
+
+const Home = React.memo(({date,setDate,startLoader}) => {
 
     useEffect(() => {
         if(date === ''){
@@ -13,7 +15,7 @@ const Home = React.memo(({addAppleNews,date,setDate,page}) => {
             const dd = String(today.getDate()).padStart(2, '0') - 1;
             const mm = String(today.getMonth() + 1).padStart(2, '0');
             const yyyy = today.getFullYear();
-            const day =  yyyy + '-' + mm + '-' + dd;
+            const day =  yyyy + '-' + mm + '-' + '05';
             setDate(day)
         }
     },[date])
@@ -45,7 +47,7 @@ const Home = React.memo(({addAppleNews,date,setDate,page}) => {
             </header> 
             <div className={` ${"home__inner"} ${s.home__inner}`}>
                 <div className={` ${s.home__grid} `}>
-                    <NavLink onClick={() => addAppleNews(date,page)} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
+                    <NavLink onClick={() => {startLoader()}} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__apple-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {

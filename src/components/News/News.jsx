@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import s from "./News.module.css"
 import logo from '../../img/logo.svg'
 import NewsBlock from './NewsBlock/NewsBlock';
@@ -7,7 +7,11 @@ import leftArrow from '../../img/left-arrow.svg'
 import rightArrow from '../../img/right-arrow.svg'
 
 
-const News = React.memo(({date,nextPage,prevPage,dataNews}) => {
+const News = React.memo(({date,nextPage,prevPage,dataNews,page,addAppleNews,stopLoader}) => {
+
+    useEffect(() => {
+        addAppleNews(page,date)
+    },[page,date])
 
     return (
         <div className={s.news}>
@@ -22,7 +26,7 @@ const News = React.memo(({date,nextPage,prevPage,dataNews}) => {
                 <button onClick={() => prevPage()} className={s["home__inner-btn--left"]}>
                     <img draggable="false" src={leftArrow} className={s["home__inner-btn--img"]}/>
                 </button>
-                <button onClick={() => nextPage()} className={s["home__inner-btn--right"]}>
+                <button onClick={() => {nextPage() }} className={s["home__inner-btn--right"]}>
                     <img draggable="false" src={rightArrow} className={s["home__inner-btn--img"]}/>
                 </button>
             </div>
