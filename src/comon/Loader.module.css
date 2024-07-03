@@ -1,0 +1,33 @@
+.loader__wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: -webkit-linear-gradient(180deg, #3701b7,#150240);/* Chrome 10-25, Safari 5.1-6 */                          background: linear-gradient(180deg, #3701b7,#150240);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    z-index: 1000;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 400px;
+    animation-name: load;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes load {
+    20% {
+        opacity: 10%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}

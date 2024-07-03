@@ -1,40 +1,49 @@
-import React, { useEffect, useState } from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import s from './Home.module.css'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import logo from "../../img/logo.svg"
 import { NavLink } from "react-router-dom";
+import {addAppleNews, setSearchedNews} from "../../redux/main-reducer";
+import {newsType} from "../commonInterface/CommonInterface.ts";
 
-// startLoader();addAppleNews(date,page)
+interface Props {
+    date : string,
+    setDate : (day:string) => void,
+    startLoader : () => void,
+    setSearchedNews : (newsType : string) => void,
+}
 
-const Home = React.memo(({date,setDate,startLoader}) => {
+const Home = React.memo(({date,setDate,startLoader,setSearchedNews} : Props ) => {
 
-    useEffect(() => {
+    useEffect(() : void => {
         if(date === ''){
-            const today = new Date();
-            const dd = String(today.getDate()).padStart(2, '0') - 1;
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const yyyy = today.getFullYear();
-            const day =  yyyy + '-' + mm + '-' + '05';
+            const today:Date = new Date();
+            const dd : string= String(today.getDate()- 1).padStart(2, '0') ;
+            const mm: string = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy: number = today.getFullYear();
+            const day: string =  yyyy + '-' + mm + '-' + dd;
             setDate(day)
         }
     },[date])
 
-    let [clietX, setClietX] = useState(window.innerWidth / 2)
-    let [clietY, setClietY] = useState(window.innerHeight / 2)
+
+
+    let [clietX, setClietX] = useState<number>(window.innerWidth / 2)
+    let [clietY, setClietY] = useState<number>(window.innerHeight / 2)
 
     useGSAP(() => {
-        let cx = window.innerWidth / 2
-        let cy = window.innerHeight / 2
+        let cx: number = window.innerWidth / 2
+        let cy: number  = window.innerHeight / 2
 
-        let dx = clietX - cx
-        let dy = clietY - cy
+        let dx: number  = clietX - cx
+        let dy: number  = clietY - cy
 
-        let tiltX = dy / cy
-        let tiltY = dx / cx
+        let tiltX: number  = dy / cy
+        let tiltY: number  = dx / cx
 
-        let radius = Math.sqrt(Math.pow(tiltX, 2) + Math.pow(tiltY, 2))
-        let degree = radius * 16
+        let radius: number  = Math.sqrt(Math.pow(tiltX, 2) + Math.pow(tiltY, 2))
+        let degree: number  = radius * 16
 
         gsap.to(".home__inner", 1, { transform: `rotate3d(${tiltX}, ${tiltY}, 0 ,${degree}deg)` });
     }, [clietX, clietY])
@@ -47,7 +56,10 @@ const Home = React.memo(({date,setDate,startLoader}) => {
             </header> 
             <div className={` ${"home__inner"} ${s.home__inner}`}>
                 <div className={` ${s.home__grid} `}>
-                    <NavLink onClick={() => {startLoader()}} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
+                    <NavLink onClick={() => {
+                        startLoader()
+                        setSearchedNews(newsType.AppleNews)
+                    }} to={`/news`} className={` ${"home__apple-news"} ${s["home__apple-news"]}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__apple-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {
@@ -57,7 +69,10 @@ const Home = React.memo(({date,setDate,startLoader}) => {
                             <p className={s['home__grid-text']}>Apple News</p>
                         </div>
                     </NavLink>
-                    <NavLink to={`/news`} className={`${s["home__tesla-news"]} ${"home__tesla-news"}`}>
+                    <NavLink onClick={() => {
+                        startLoader()
+                        setSearchedNews(newsType.TeslaNews)
+                    }} to={`/news`} className={`${s["home__tesla-news"]} ${"home__tesla-news"}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__tesla-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {
@@ -67,7 +82,10 @@ const Home = React.memo(({date,setDate,startLoader}) => {
                             <p className={s['home__grid-text']}>Tesla News</p>
                         </div>
                     </NavLink>
-                    <NavLink to={`/news`} className={`${s["home__business-news"]} ${"home__business-news"}`}>
+                    <NavLink onClick={() => {
+                        startLoader()
+                        setSearchedNews(newsType.BusinessNews)
+                    }} to={`/news`} className={`${s["home__business-news"]} ${"home__business-news"}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__business-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {
@@ -77,7 +95,10 @@ const Home = React.memo(({date,setDate,startLoader}) => {
                             <p className={s['home__grid-text']}>Business US</p>
                         </div>
                     </NavLink>
-                    <NavLink to={`/news`} className={`${s["home__techcrunch-news"]} ${"home__techcrunch-news"}`}>
+                    <NavLink onClick={() => {
+                        startLoader()
+                        setSearchedNews(newsType.TechCrunchNews)
+                    }} to={`/news`} className={`${s["home__techcrunch-news"]} ${"home__techcrunch-news"}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__techcrunch-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {
@@ -87,7 +108,10 @@ const Home = React.memo(({date,setDate,startLoader}) => {
                             <p className={s['home__grid-text']}>Tech Crunch News</p>
                         </div>
                     </NavLink>
-                    <NavLink to={`/news`} className={`${s["home__wallstreet-news"]} ${"home__wallstreet-news"}`}>
+                    <NavLink onClick={() => {
+                        startLoader()
+                        setSearchedNews(newsType.WallStreetNews)
+                    }} to={`/news`} className={`${s["home__wallstreet-news"]} ${"home__wallstreet-news"}`}>
                         <div onMouseEnter={() => {
                             gsap.to(".home__wallstreet-news", 1, { scale: 1.10 });
                         }} onMouseLeave={() => {

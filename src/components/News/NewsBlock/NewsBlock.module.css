@@ -38,8 +38,17 @@
 }
 
 .block__info-img{
-    width: 50%;
+    min-width: 700px;
+    max-height: 350px;
     margin-top: 10px;
+}
+
+.block__info-img--error {
+    width: 700px;
+    height: 350px;
+    margin-top: 10px;
+    background-color: #a3a3a3;
+    position: relative;
 }
 
 .block__info {
@@ -47,6 +56,17 @@
     justify-content: space-between;
     align-items: self-start;
     gap: 40px;
+    
+}
+
+.block__img-text--error {
+    font-family: 'Courier New', Courier, monospace;
+    color: #F0ECF9;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .block__info-text {
