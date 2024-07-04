@@ -11,7 +11,7 @@ import Loader from "./comon/Loader.tsx";
 
 const App = React.memo(({search}) => {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <div className={s.main__wrapper}>
         <Routes>
             <Route path='/news' element={
