@@ -10,7 +10,7 @@ import Loader from "./comon/Loader.tsx";
 
 const App = React.memo(({search}) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className={s.main__wrapper}>
         <Routes>
             <Route path='/news' element={
