@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shelemetev.github.io/News",
+  "homepage": "https://shelemetev.github.io/repo",
   "dependencies": {
     "@gsap/react": "^2.1.0",
     "@reduxjs/toolkit": "^2.2.5",
