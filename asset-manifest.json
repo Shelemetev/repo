@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/News/static/css/main.e865ab17.css",
-    "main.js": "/News/static/js/main.b060a9ee.js",
-    "static/js/453.ed3810f9.chunk.js": "/News/static/js/453.ed3810f9.chunk.js",
-    "static/media/Loader.gif": "/News/static/media/Loader.19cdce0aa97d2c1d9abe.gif",
-    "static/media/Oswald-VariableFont_wght.ttf": "/News/static/media/Oswald-VariableFont_wght.7cecd0da606d25b0905d.ttf",
-    "static/media/Roboto-Regular.ttf": "/News/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
-    "static/media/logo.svg": "/News/static/media/logo.e453e62428bd29d01fb0f8ad89e088da.svg",
-    "index.html": "/News/index.html",
-    "static/media/left-arrow.svg": "/News/static/media/left-arrow.6197f26d9e95c112aae92015dca6245c.svg",
-    "static/media/right-arrow.svg": "/News/static/media/right-arrow.2f56fb01f6546038631dcbd43f056231.svg",
-    "main.e865ab17.css.map": "/News/static/css/main.e865ab17.css.map",
-    "main.b060a9ee.js.map": "/News/static/js/main.b060a9ee.js.map",
-    "453.ed3810f9.chunk.js.map": "/News/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/repo/static/css/main.6e9f0f1d.css",
+    "main.js": "/repo/static/js/main.403514eb.js",
+    "static/js/453.ed3810f9.chunk.js": "/repo/static/js/453.ed3810f9.chunk.js",
+    "static/media/Loader.gif": "/repo/static/media/Loader.19cdce0aa97d2c1d9abe.gif",
+    "static/media/Oswald-VariableFont_wght.ttf": "/repo/static/media/Oswald-VariableFont_wght.7cecd0da606d25b0905d.ttf",
+    "static/media/Roboto-Regular.ttf": "/repo/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/logo.svg": "/repo/static/media/logo.e453e62428bd29d01fb0f8ad89e088da.svg",
+    "index.html": "/repo/index.html",
+    "static/media/left-arrow.svg": "/repo/static/media/left-arrow.6197f26d9e95c112aae92015dca6245c.svg",
+    "static/media/right-arrow.svg": "/repo/static/media/right-arrow.2f56fb01f6546038631dcbd43f056231.svg",
+    "main.6e9f0f1d.css.map": "/repo/static/css/main.6e9f0f1d.css.map",
+    "main.403514eb.js.map": "/repo/static/js/main.403514eb.js.map",
+    "453.ed3810f9.chunk.js.map": "/repo/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e865ab17.css",
-    "static/js/main.b060a9ee.js"
+    "static/css/main.6e9f0f1d.css",
+    "static/js/main.403514eb.js"
   ]
 }
